@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDA project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js" integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag==" crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">G8</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" onclick="location.href='{% url 'features' %}'">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item" onclick="location.href='{% url 'about' %}'">
+                        <a class="nav-link" href="#">About us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Predict The Profit</h1>
+
+                    <form action="/compute/" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationDefault01">R&D Spend</label>
+                                <input type="number" name="rnd" class="form-control" id="validationDefault01"
+                                    value="Mark" required >
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationDefault02">Administration</label>
+                                <input type="number" name="admn" class="form-control" id="validationDefault02"
+                                    value="Otto" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationDefault03">Marketing Spend</label>
+                                <input type="number" name="mks" class="form-control" id="validationDefault03" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationDefault04">City Location</label>
+                                <input type="number" name="loc" class="form-control" id="validationDefault03" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationDefault04">Industry Vertical</label>
+                                <input type="number" name="indv" class="form-control" id="validationDefault03" required>
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Predict Profit</button>
+                    </form>
+
+                    <hr>
+                    <div class="container">
+                        <h2>{{predicted}}</h2>
+                    </div>
+
+                </div>
+                <div class="col-4">
+                    <h3>City Location</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-info">1-Pune | 2-Chennai</li>
+                        <li class="list-group-item list-group-item-info">3-Bengaluru  | 4-Delhi</li>
+                        <li class="list-group-item list-group-item-info">5-Ahemdabad | 6-Hyderabad</li>
+                        <li class="list-group-item list-group-item-info">7-Gurugram   | 8-Others</li>
+                        <li class="list-group-item list-group-item-info">9-Mumbai</li>
+                    </ul>
+                    <h3>Industry Vertical</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">1-E-tech | 2-Transport | 3-e-commerce</li>
+                        <li class="list-group-item list-group-item-danger">4-Fintech | 5-Healthcare</li>
+                        <li class="list-group-item list-group-item-danger">6-Consumer internet | 7-Technology</li>
+                        <li class="list-group-item list-group-item-danger">8-Finance | 9-Medicine | 10-Ed-Tech</li>
+                        <li class="list-group-item list-group-item-danger">11-Education | 12-Logistic | 13-Food</li>
+                
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

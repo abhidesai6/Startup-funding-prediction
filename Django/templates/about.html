@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"
+        integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag=="
+        crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <style>
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail img {
+            width: 100px;
+            height: 380px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">G8</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active" onclick="location.href='{% url 'home' %}'">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" onclick="location.href='{% url 'features' %}'">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 style="text-align: center;">About Us</h1>
+        <br><hr><br>
+        <div class="container-fluid text-center bg-grey">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="{% static 'bdaproject/d.png' %}" alt="Nature" style="width:100%" class="thumbnail img rounded-circle">
+                        <p><strong>Abhishek Desai</strong></p>
+                        <p>321011, E1</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="{% static 'bdaproject/dh.png' %}" alt="Nature" style="width:100%" class="thumbnail img rounded-circle">
+                        <p><strong>Dhananjay Bagul</strong></p>
+                        <p>321004, E1</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="{% static 'bdaproject/tej.jpg' %}" alt="Nature" style="width:100%" class="thumbnail img rounded-circle">
+                        <p><strong>Tejas Bagal</strong></p>
+                        <p>321003, E1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
