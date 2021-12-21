@@ -20,6 +20,6 @@ def compute(request):
     indv = request.POST.get('indv')
 
     
-    out = run([sys.executable, 'S:\\BDA\\demo.py', rnd, admn, mks, loc, indv], shell=False, stdout=PIPE)
+    out = run([sys.executable, 'D:\\College notes\\Sem_5\\BDA\PBL\\Django\\bdaproject\\demo.py', rnd, admn, mks, loc, indv], shell=False, stdout=PIPE)
     print(out)
     return render(request, 'home.html', {'predicted':out.stdout.decode("utf-8")})
